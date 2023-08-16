@@ -15,7 +15,7 @@
             </ul>
             @endif
 
-            <form method="POST" action="{{ route('product.created') }}">
+            <form method="POST" action="{{ route('product.save') }}">
               @csrf
               <input type="text" class="form-control mb-2" placeholder="Enter name" name="name" value="{{ old('name') }}" />
               <input type="text" class="form-control mb-2" placeholder="Enter price" name="price" value="{{ old('price') }}" />
