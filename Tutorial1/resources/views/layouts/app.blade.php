@@ -9,7 +9,7 @@
 </head>
 <body>
     
-    <!--Navigation - Header -->
+    <!--Nav Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
     <div class="container">
         <a class="navbar-brand" href="{{ route('home.index') }}">Online Store</a>
@@ -21,11 +21,13 @@
             <div class="navbar-nav ms-auto">
             <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
             <a class="nav-link active" href="{{ route('home.about') }}">About</a>
+            <a class="nav-link active" href="{{ route('home.contact') }}">Contact</a>
+            <a class="nav-link active" href="{{ route('product.index') }}">Products</a>
+            <a class="nav-link active" href="{{ route('product.create') }}">Create a product</a>
             </div>
         </div>
         </div>
     </nav>
-
     <!-- End Navigation -->
 
     <!-- Page Header -->
@@ -64,4 +66,3 @@
 
 
 </html>
-`

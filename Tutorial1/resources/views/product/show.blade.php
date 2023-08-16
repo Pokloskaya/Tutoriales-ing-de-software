@@ -10,11 +10,26 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">
-           {{ $viewData["product"]["name"] }}
+          {{ $viewData["product"]["name"] }}
         </h5>
         <p class="card-text">{{ $viewData["product"]["description"] }}</p>
+        @if ($viewData["product"]["price"] > 100)
+          <p class="card-text text-red">{{ $viewData["product"]["price"] }}</p>
+        @else
+          <p class="card-text">{{ $viewData["product"]["price"] }}</p>
+        @endif
+
+        <a href="{{ route('home.index') }}" class="btn btn-primary">Go Back to Home</a>
       </div>
     </div>
   </div>
 </div>
+
+
+<style>
+    .text-red {
+      color: red;
+    }
+</style>
+
 @endsection
