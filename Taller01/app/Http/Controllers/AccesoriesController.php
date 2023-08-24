@@ -36,7 +36,8 @@ class AccesoriesController extends Controller
             'price' => 'required|gt:0',
         ]);
         $viewData = [];
-        $viewData['title'] = 'Products - Online Store';
+        $viewData['title'] = 'Accesories';
+        $viewData['subtitle'] = 'Taller01 Accesories';
         
         $accesory = new Accesory();
         $accesory->setName($request['name']);

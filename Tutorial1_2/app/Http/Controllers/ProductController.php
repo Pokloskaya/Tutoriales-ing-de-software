@@ -1,19 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ProductController extends Controller
 {
-    public static $products = [
-        ['id' => '1', 'name' => 'TV 4K', 'description' => 'Esta es la descripcion de tv', 'price' => '2.000.000'],
-        ['id' => '2', 'name' => 'iPhone', 'description' => 'Best iPhone', 'price' => '8.000.000'],
-        ['id' => '3', 'name' => 'Chromecast', 'description' => 'Best Chromecast', 'price' => '300.000'],
-        ['id' => '4', 'name' => 'Glasses', 'description' => 'Best Glasses', 'price' => '10'],
-    ];
-
     public function create(): View
     {
         $viewData = []; //to be sent to the view
@@ -22,7 +17,7 @@ class ProductController extends Controller
         return view('product.create')->with('viewData', $viewData);
     }
 
-    public function save(Request $request): View
+    public function save(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'name' => 'required',
@@ -32,7 +27,11 @@ class ProductController extends Controller
         $viewData['title'] = 'Products - Online Store';
         $viewData['name'] = $request['name'];
         $viewData['price'] = $request['price'];
-        return view('product.created')->with('viewData', $viewData);
+        // return view('product.created')->with('viewData', $viewData);
+
+        Product::create($request->only(['name', 'price']));
+
+        return back();
     }
 
     public function index(): View
@@ -40,15 +39,15 @@ class ProductController extends Controller
         $viewData = [];
         $viewData['title'] = 'Products - Online Store';
         $viewData['subtitle'] = 'List of products';
-        $viewData['products'] = ProductController::$products;
+        $viewData['products'] = Product::all();
 
         return view('product.index')->with('viewData', $viewData);
     }
 
-    public function show(string $id): View | RedirectResponse
+    public function show(string $id): View|RedirectResponse
     {
         try {
-            $product = ProductController::$products[$id - 1];
+            $product = Product::findOrFail($id);
             $viewData = [
                 'title' => $product['name'].' - Online Store',
                 'subtitle' => $product['name'].' - Product information',
