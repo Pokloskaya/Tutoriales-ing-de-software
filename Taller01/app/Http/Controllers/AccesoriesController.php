@@ -45,7 +45,7 @@ class AccesoriesController extends Controller
         $accesory->setPrice($request['price']); 
         $accesory->setSize($request['size']); 
         $accesory->setDescription($request['description']); 
-        $accesory->setImage($request['setImage']);
+        //$accesory->setImage($request['setImage']);
         $accesory->save();
 
         // $viewData['name'] = $request['name'];

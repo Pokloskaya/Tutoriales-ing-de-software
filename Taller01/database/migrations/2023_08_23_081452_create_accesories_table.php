@@ -21,7 +21,7 @@ return new class extends Migration
             $table->float("price");
             $table->float("size");  
             $table->text("description");
-            $table->string('image')->nullable()->change();
+            $table->string('image');
         });
     }
 

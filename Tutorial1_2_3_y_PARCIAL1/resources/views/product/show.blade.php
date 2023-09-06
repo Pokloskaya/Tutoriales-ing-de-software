@@ -17,7 +17,7 @@
           <p class="card-text text-red">{{ $viewData["product"]["price"] }}</p>
         @else
           <p class="card-text">{{ $viewData["product"]["price"] }}</p>
-        @endif
+        @endifx
 
         @foreach($viewData["product"]->comments as $comment)
 
