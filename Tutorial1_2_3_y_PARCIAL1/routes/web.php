@@ -14,14 +14,17 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PetController;
 use Illuminate\Support\Facades\Route;
 
 /* PARCIAL 1 START */
 
-Route::controller('App\Http\Controllers\ReviewController')->group(function (): void {
-    Route::get('/pet', 'index')->name('review.index');
-    // Route::get('/review/create', 'create')->name('review.create');
-    // Route::post('/store', 'store')->name('review.store'); //CUDADO
+Route::controller('App\Http\Controllers\PetController')->group(function (): void {
+    Route::get('/pet', 'index')->name('pet.index');
+    Route::get('/pet/list', 'list')->name('pet.list');
+    Route::get('/pet/statistics', 'statistics')->name('pet.statistics');
+    Route::get('/pet/create', 'create')->name('pet.create');
+    Route::post('/save', 'save')->name('pet.save'); 
 });
 
 /* PARCIAL 1 END*/

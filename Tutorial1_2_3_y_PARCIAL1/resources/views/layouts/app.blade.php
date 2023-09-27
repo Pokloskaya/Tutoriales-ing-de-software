@@ -54,11 +54,9 @@
         <small>
             <!-- Copyright information with author links -->
             Copyright -
-            <a class="text-reset fw-bold text-decoration-none" target="_blank" href="https://twitter.com/danielgarax">
-                Daniel Correa
+            <a class="text-reset fw-bold text-decoration-none" target="_blank" href="https://www.sabaneta.gov.co/">
+                Alcaldia de Sabaneta
             </a>
-            - 
-            <b>Paola Vallejo</b>
         </small>
     </div>
 </div>
